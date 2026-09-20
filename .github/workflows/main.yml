@@ -46,9 +46,6 @@ jobs:
       - name: Copy web files
         run: npx cap copy android
 
-      - name: Update Android
-        run: npx cap update android
-
       - name: Build APK
         run: |
           cd android
