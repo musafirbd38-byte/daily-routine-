@@ -26,9 +26,6 @@ jobs:
             "name": "daily-routine",
             "version": "1.0.0",
             "private": true,
-            "scripts": {
-              "build": "echo Build complete"
-            },
             "dependencies": {
               "@capacitor/core": "^7.4.3",
               "@capacitor/cli": "^7.4.3",
@@ -41,14 +38,16 @@ jobs:
         run: npm install
 
       - name: Create Capacitor project
-        run: |
-          npx cap init "Daily Routine" "com.dailyroutine.app" --web-dir=.
+        run: npx cap init "Daily Routine" "com.dailyroutine.app" --web-dir=www
 
       - name: Add Android
         run: npx cap add android
 
       - name: Copy web files
         run: npx cap copy android
+
+      - name: Update Android
+        run: npx cap update android
 
       - name: Build APK
         run: |
